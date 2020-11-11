@@ -6,6 +6,7 @@ import logger from 'morgan';
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
+import recommendationsRouter from './routes/recommendations';
 
 const app = express();
 
@@ -18,5 +19,6 @@ app.use(express.static(path.join(__dirname, '../../frontend/build')));
 
 app.use('/', indexRouter);
 app.use('/api', usersRouter);
+app.use('/recommendations', recommendationsRouter);
 
 export default app;
