@@ -20,6 +20,39 @@ const getAllRecommendations = async (req, res, next) => {
   }
 };
 
+const addRecommendation = async (req, res) => {
+  const {
+    r_name, intensity, benefit_description, url
+  } = req.body;
+console.log(`r_name: ${r_name}`);
+  // if (isEmpty(r_name) || isEmpty(intensity) || isEmpty(benefit_description) || isEmpty(url)) {
+  //   errorMessage.error = 'Fields cannot be empty';
+  //   return res.status(status.bad).send(errorMessage);
+  // }
+  const createRecommendationQuery = `INSERT INTO
+          recommendations(r_name, intensity, benefit_description, url)
+          VALUES($1, $2, $3, $4)
+          returning *`;
+  const values = [
+    r_name,
+    intensity,
+    benefit_description,
+    url,
+  ];
+  try {
+    const { rows } = await dbQuery.query(createRecommendationQuery, values);
+    const dbResponse = rows[0];
+    //successMessage.data = dbResponse;
+    return res.status(200).send(dbResponse);
+  } catch (error) {
+    //errorMessage.error = 'Unable to create recommendation';
+    console.log(error);
+    return res.status(500).send('Unable to create recommendation');
+  }
+
+}
+
 export {
-  getAllRecommendations
+  getAllRecommendations,
+  addRecommendation
 };
