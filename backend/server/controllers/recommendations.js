@@ -20,6 +20,26 @@ const getAllRecommendations = async (req, res, next) => {
   }
 };
 
+const getRecommendation = async (req, res, next) => {
+  console.log('getRecommendation is called');
+  const { name } = req.query;
+  const getRecommendationsQuery = 'SELECT * FROM recommendations where r_name=$1';
+  try {
+    const { rows } = await dbQuery.query(getRecommendationsQuery, [name]);
+    const dbResponse = rows;
+    if (!dbResponse[0]) {
+      //errorMessage.error = 'There are no trips';
+      return res.status(404).send('There are no recommendations');
+    }
+    //successMessage.data = dbResponse;
+    return res.status(200).send(dbResponse);
+    next();
+  } catch (error) {
+    //errorMessage.error = 'Operation was not successful';
+    return res.status(500).send('Operation was not successful');
+  }
+};
+
 const addRecommendation = async (req, res) => {
   const {
     r_name, intensity, benefit_description, url
@@ -33,6 +53,7 @@ console.log(`r_name: ${r_name}`);
           recommendations(r_name, intensity, benefit_description, url)
           VALUES($1, $2, $3, $4)
           returning *`;
+  console.log(`r_name: ${createRecommendationQuery}`);
   const values = [
     r_name,
     intensity,
@@ -54,5 +75,6 @@ console.log(`r_name: ${r_name}`);
 
 export {
   getAllRecommendations,
+  getRecommendation,
   addRecommendation
 };
