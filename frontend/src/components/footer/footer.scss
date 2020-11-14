@@ -1,0 +1,36 @@
+footer {
+  background-color: #0073ae;
+  color: #fff;
+  padding: 3rem;
+  display: flex;
+
+  .footer-logo {
+    max-width: 50%;
+    @media screen and (min-width: 1050px) {
+      max-width: 20%;
+    }
+    
+  }
+  
+  .footer-left {
+    text-align: left;
+  }
+  
+  .footer-right {
+    display: flex;
+
+    a {
+      color: #e8cf00;
+    }
+    
+    .privacy-link {
+      padding-right: 2rem;
+    }
+    
+    .terms-of-use-link {
+      padding-left: 2rem;
+      border-left: 1px solid #fff;
+    }
+  }
+}
+
