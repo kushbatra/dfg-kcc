@@ -1,0 +1,58 @@
+
+.header {
+    display: flex;
+    background: hsl(54, 100%, 45%);
+    padding: 2rem;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 2rem;
+} 
+
+.header li {
+    list-style-type: none;
+}
+
+.header a {
+    font-size: 2rem;
+    padding: 2rem 0;
+    /* TODO: CSS transitions */
+    /* transition: color 0.3s linear; */
+}
+
+.hamburger {
+    padding-right: 5px;
+    position: absolute;
+    top: 0; 
+    right: 0;
+    background: hsl(54, 100%, 45%);
+}
+
+.hamburger-open {
+    display: none;
+}
+
+.desktop-bar {
+    display: none;
+}
+
+/* TODO: This should toggle on hamburger click instead of screen width */
+@media screen and (min-width: 1050px) {
+    .title-bar {
+        display: none;
+    }
+
+    .top-bar {
+        display: block;
+    }
+}
+
+/* TODO: Hide hamburger for desktop and style desktop menu */
+/* @media screen and (min-width: 1050px) {
+    .hamburger, 
+    .hamburger-open {
+        display: none;
+    }
+
+    .desktop-bar {
+        display: block;
+    }
+} */
