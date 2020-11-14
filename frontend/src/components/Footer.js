@@ -1,6 +1,6 @@
 import React from 'react';
 
-import footerImg from '../../..public/assets/images/kids-cancer-care-logo.png';
+import footerImg from '../assets/images/kids-cancer-care-logo.png';
 
 export const Footer = () => {
     return (
@@ -11,3 +11,5 @@ export const Footer = () => {
         </div>
     )
 }
+
+export default Footer;

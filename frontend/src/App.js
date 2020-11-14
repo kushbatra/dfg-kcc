@@ -69,7 +69,7 @@ class App extends Component {
         <div className="row mrgnbtm">
           <Users users={this.state.users}></Users>
         </div>
-        <Footer></Footer>
+        <Footer/>
       </div>
       
     );
