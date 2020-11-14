@@ -37,14 +37,13 @@
 /* TODO: This should toggle on hamburger click instead of screen width */
 @media screen and (min-width: 1050px) {
     .title-bar {
-    display: none;
+        display: none;
     }
 
     .top-bar {
-    display: block;
+        display: block;
     }
 }
-
 
 /* TODO: Hide hamburger for desktop and style desktop menu */
 /* @media screen and (min-width: 1050px) {

@@ -22,6 +22,7 @@ export const Header = () => {
                 </div>
             </div>
 
+            {/* TODO: add horizontal menu for desktop */}
             {/* <div class="top-bar" id="example-animated-menu" data-animate="hinge-in-from-top spin-out">
                 <div class="top-bar-left">
                     <h4 class="title-bar-title">Menu</h4>
